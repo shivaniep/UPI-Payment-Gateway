@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPI Payment Embed</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f9f9f9;
+      font-family: sans-serif;
+    }
+
+    #logo {
+      margin-bottom: 20px;
+      max-width: 180px;
+      height: auto;
+    }
+
+    .embed-container {
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: transparent; /* container background */
+    }
+
+    pega-embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Optional: dark iframe scrollbars removal */
+    iframe {
+      background: transparent !important;
+    }
+  </style>
+
+  <script src="https://lab-07003-bos.lab-internal.pega.com/prweb/PRRestService/c11nsvc/v1/pega-embed.js"></script>
+</head>
+<body>
+  <!-- Logo -->
+  <img id="logo" src="bankease.png" alt="BankEase Logo" />
+
+  <!-- Wrapper with controlled width and transparent background -->
+  <div class="embed-container">
+    <pega-embed
+      id="theEmbed"
+      action="createCase"
+      caseTypeID="MyOrg-Bank-Work-UPIPayment"
+      themeID="pzCosmosDefault"
+      casePage="assignment"
+      assignmentHeader="false"
+      appAlias="bank"
+      pegaServerUrl="https://lab-07003-bos.lab-internal.pega.com/prweb/"
+      autoReauth="true"
+      authService="pega"
+      clientId="56836762993401057106"
+	  startingFields='{"CaseID":"O-150","Amount":"260"}'
+      userIdentifier="random@Bank"
+      password="cnVsZXNAMTIzNA=="
+    ></pega-embed>
+  </div>
+</body>
+</html>
